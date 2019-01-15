@@ -89,12 +89,20 @@ def task_2():
 
 def task_3():
 
-    stop = enter_var_int("Enter upper limit for generations (it should be integer or 'no' for exit)")
-    amount = enter_var_int("Enter amount of number which will contain list (it should be integer or 'no' for exit)")
+    stop = enter_var_int("Enter upper limit for generations (it should be integer or 'no' for exit): ")
+    amount = enter_var_int("Enter amount of number which will contain list (it should be integer or 'no' for exit): ")
 
     first = [random.randint(1, stop) for i in range(amount)]
 
-    print(first)
+    second = []
+
+    for x in first:
+        if x % 2 == 0:
+            second.append(x / 4)
+        else:
+            second.append(x * 2)
+
+    print(first, second, sep="\n")
 
 
 if __name__ == '__main__':
