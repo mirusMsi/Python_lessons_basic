@@ -12,6 +12,7 @@ def check_int(value):
             print('Wrong enter. Pleas will try again')
             return "error"
 
+
 def enter_var_int(text):
 
     while True:
@@ -21,8 +22,6 @@ def enter_var_int(text):
             pass
         else:
             return variable
-
-
 
 
 # Задача-1:
