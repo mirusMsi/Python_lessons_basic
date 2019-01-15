@@ -1,3 +1,30 @@
+import random
+
+
+def check_int(value):
+
+        if value.lower() == 'no':
+            raise SystemExit
+
+        try:
+            return int(value)
+        except ValueError:
+            print('Wrong enter. Pleas will try again')
+            return "error"
+
+def enter_var_int(text):
+
+    while True:
+        variable = check_int(input(text))
+
+        if variable == "error":
+            pass
+        else:
+            return variable
+
+
+
+
 # Задача-1:
 # Дан список фруктов.
 # Напишите программу, выводящую фрукты в виде нумерованного списка,
@@ -38,10 +65,36 @@ def task_1():
 # Удалите из первого списка элементы, присутствующие во втором списке.
 
 
+def task_2():
+
+    first = [i for i in range(1, 20, 1)]
+    second = [i for i in range(2, 20, 2)]
+
+    print(first, second, sep="\n")
+
+    for x in second:
+        try:
+            first.remove(x)
+        except ValueError:
+            continue
+
+    print(first)
+
+
 # Задача-3:
 # Дан произвольный список из целых чисел.
 # Получите НОВЫЙ список из элементов исходного, выполнив следующие условия:
 # если элемент кратен двум, то разделить его на 4, если не кратен, то умножить на два.
+
+
+def task_3():
+
+    stop = enter_var_int("Enter upper limit for generations (it should be integer or 'no' for exit)")
+    amount = enter_var_int("Enter amount of number which will contain list (it should be integer or 'no' for exit)")
+
+    first = [random.randint(1, stop) for i in range(amount)]
+
+    print(first)
 
 
 if __name__ == '__main__':
