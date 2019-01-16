@@ -65,6 +65,31 @@ date = '1.12.1001'
 date = '-2.10.3001'
 
 
+def task_2():
+
+    month = {'01': 31, '02': 28, '03': 31, '04': 30, '05': 31, '06': 30,
+             '07': 31, '08': 31, '09': 30, '10': 31, '11': 30, '12': 31}
+
+    dates = ['01.11.1985', '01.22.1001', '1.12.1001', '-2.10.3001']
+    check = []
+
+    for i in dates:
+
+        if i.find(".") != 2 or i.find(".", 3) != 5 or len(i[6:]) != 4:
+            check.append("wrong")
+        else:
+            try:
+                if 1 <= int(i[3:5]) <= 12 and 1 <= int(i[:2]) <= month[i[3:5]] and 1 <= int(i[6:]) <= 9999:
+                    check.append("right")
+                else:
+                    check.append("wrong")
+            except ValueError:
+                check.append("wrong")
+
+    for i in range(len(dates)):
+        print(f"{dates[i]} is {check[i]}")
+
+
 # Задание-3: "Перевёрнутая башня" (Задача олимпиадного уровня)
 #
 # Вавилонцы решили построить удивительную башню —
