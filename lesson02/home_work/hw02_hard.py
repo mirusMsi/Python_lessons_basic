@@ -1,8 +1,48 @@
+def check_int(value):
+    try:
+        return int(value)
+    except ValueError:
+        return "error"
+
+
+def check_float(value):
+    try:
+        return float(value)
+    except ValueError:
+        return "error"
+
+
 # Задание-1: уравнение прямой вида y = kx + b задано в виде строки.
 # Определить координату y точки с заданной координатой x.
 
-equation = 'y = -12x + 11111140.2121'
-x = 2.5
+
+def task_1():
+
+    equation = 'y = -12x + 11111140.2121'
+    x = 2.5
+
+    right = ["+", "-", ".", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+    first = []
+    second = []
+
+    first.append(equation[equation.find(" = ") + 3:equation.find("x")])
+    first.append(equation[equation.find(" + ") + 3:])
+
+    for i in first:
+        try:
+            second.append(int(i))
+        except ValueError:
+            try:
+                second.append(float(i))
+            except ValueError:
+                print("error")
+
+    y = second[0] * x + second[1]
+
+    print(y)
+
+
 # вычислите и выведите y
 
 
@@ -54,3 +94,30 @@ date = '-2.10.3001'
 #
 # Вход: 11
 # Выход: 5 3
+
+if __name__ == '__main__':
+    want = "yes"
+    amount_tasks = 3
+    welcome = f"Enter task's number which you want to check (integer from 1 to {amount_tasks} or 'no' for exit): "
+
+    while True:
+        task = input(welcome)
+
+        if task.lower() == 'no':
+            want = task.lower()
+            break
+        else:
+            try:
+                int(task)
+                task = int(task)
+                if 0 < task <= amount_tasks:
+                    break
+                else:
+                    print('You entered incorrect number, please will try again.')
+            except ValueError:
+                print('You entered not integer, please will try again.')
+
+    if want == 'yes':
+        num = ("task_" + str(task))
+        fun = globals()[num]
+        fun()
