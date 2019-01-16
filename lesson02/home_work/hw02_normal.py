@@ -132,9 +132,31 @@ def task_3():
 # например, lst = [1 , 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 4, 6]
 
 
+def task_4():
+
+    first = [random.randint(0, 18) for i in range(20)]
+    second = []
+
+    print(first)
+
+    for x in first:
+        if second.count(x) == 0:
+            second.append(x)
+
+    second.sort()
+    print(second)
+    second.clear()
+
+    for x in first:
+        if first.count(x) == 1:
+            second.append(x)
+    second.sort()
+    print(second)
+
+
 if __name__ == '__main__':
     want = "yes"
-    amount_tasks = 3
+    amount_tasks = 4
     welcome = f"Enter task's number which you want to check (integer from 1 to {amount_tasks} or 'no' for exit): "
 
     while True:
