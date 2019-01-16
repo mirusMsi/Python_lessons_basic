@@ -116,6 +116,14 @@ def task_2():
 # для получения случайного числа используйте функцию randint() модуля random
 
 
+def task_3():
+
+    amount = enter_var_int("Enter amount of number which will contain list (it should be integer or 'no' for exit): ")
+    count = [random.randint(-100, 100) for i in range(amount)]
+
+    print(count)
+
+
 # Задача-4: Дан список, заполненный произвольными целыми числами.
 # Получите новый список, элементами которого будут: 
 # а) неповторяющиеся элементы исходного списка:
