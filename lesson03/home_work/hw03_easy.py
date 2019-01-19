@@ -44,14 +44,32 @@ def my_round(number, ndigits):
 # Билет считается счастливым, если сумма его первых и последних цифр равны.
 # !!!P.S.: функция не должна НИЧЕГО print'ить
 
+# Так как принтить нельзя, значит и ошибку не вывести, поэтому недостающие разряды буду считать за 0
+# Вариант где разрядов больше 6 - сразу не счастливый
+
 def lucky_ticket(ticket_number):
-    pass
 
+    length = len(str(ticket_number))
+    if length > 6:
+        return "unhappy"
+    if length < 6:
+        ticket_number = ticket_number * 10 ** (6 - length)
 
-#print(lucky_ticket(123006))
-#print(lucky_ticket(12321))
-#print(lucky_ticket(436751))
+    work = [int(x) for x in str(ticket_number)]
+
+    firs = [work[x] for x in range(0, 3)]
+    second = [work[x] for x in range(3, 6)]
+
+    if sum(firs) == sum(second):
+        return "happy"
+    else:
+        return "unhappy"
+
 
 print(my_round(2.1234567, 5))
 print(my_round(2.1999967, 5))
 print(my_round(2.9999967, 5))
+
+print(lucky_ticket(123006))
+print(lucky_ticket(12321))
+print(lucky_ticket(436751))
