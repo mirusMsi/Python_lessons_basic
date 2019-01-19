@@ -27,9 +27,22 @@ def fibonacci(n, m):
 
 
 def sort_to_max(origin_list):
-    pass
+    length = len(origin_list)
 
-#sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
+    def sort(array, steps):
+
+        for x in range(steps - 1):
+            if array[x] > array[x + 1]:
+                array[x], array[x + 1] = array[x + 1], array[x]
+
+        steps -= 1
+
+        if steps > 1:
+            sort(array, steps)
+
+    sort(origin_list, length)
+    return origin_list
+
 
 # Задача-3:
 # Напишите собственную реализацию стандартной функции filter.
@@ -41,3 +54,5 @@ def sort_to_max(origin_list):
 # Определить, будут ли они вершинами параллелограмма.
 
 print(fibonacci(5, 12))
+print(sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0]))
+print(sort_to_max([8, 7, 6, 5, 4, 3, 2, 1, 0]))
