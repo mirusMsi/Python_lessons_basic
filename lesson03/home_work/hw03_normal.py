@@ -49,10 +49,24 @@ def sort_to_max(origin_list):
 # Разумеется, внутри нельзя использовать саму функцию filter.
 
 
+def own_filter(functions, array):
+    answer = []
+
+    for element in array:
+        if functions(element):
+            answer.append(element)
+
+    return answer
+
+
 # Задача-4:
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
 # Определить, будут ли они вершинами параллелограмма.
 
 print(fibonacci(5, 12))
+
 print(sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0]))
 print(sort_to_max([8, 7, 6, 5, 4, 3, 2, 1, 0]))
+
+array = ['мак', 'просо', 'мак', 'мак', 'непросо', 'мак', 'просо', 'просо', 'просо', 'мак']
+print(own_filter(lambda x: x == 'мак' or x == "непросо", array))
