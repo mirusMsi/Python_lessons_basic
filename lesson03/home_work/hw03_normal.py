@@ -79,6 +79,9 @@ def own_filter(functions, array):
 
 def check_dot(x1, y1, x2, y2, x3, y3, x4, y4):
 
+    if x1 == x2 == x3 == x4 or y1 == y2 == y3 == y4:
+        return "is wrong"
+
     first = [x1, x2, x3, x4]
     first.sort()
     if first[0] < 0:
@@ -143,3 +146,5 @@ print(check_dot(0, 1, 1, 6, 6, 5, 5, 0))
 print(check_dot(0, 1, 1, 6, 6, 7, 5, 2))
 print(check_dot(0, 1, -1, 6, 4, 7, 5, 2))
 print(check_dot(0, 1, -1, 6, 6, 7, 5, 2))
+print(check_dot(1, 1, 1, 6, 1, 7, 1, 2))
+print(check_dot(1, 3, 1, 3, 1, 3, 1, 3))
