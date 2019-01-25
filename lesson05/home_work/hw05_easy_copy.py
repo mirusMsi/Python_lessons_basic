@@ -54,3 +54,7 @@ def listdir():
 def copy():
     path = re.findall(r"[^\/]*\.py", sys.argv[0])[0]
     shutil.copy(path, path[:-3] + "_copy.py")
+
+
+if __name__ == '__main__':
+    copy()

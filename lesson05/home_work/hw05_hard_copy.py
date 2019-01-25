@@ -2,15 +2,6 @@ import re
 import shutil
 import sys
 
-
-def copy():
-    path = re.findall(r"[^\/]*\.py", sys.argv[0])[0]
-    shutil.copy(path, path[:-3] + "_copy.py")
-
-
-if __name__ == '__main__':
-    copy()
-
 # Задание-1:
 # Доработайте реализацию программы из примера examples/5_with_args.py,
 # добавив реализацию следующих команд (переданных в качестве аргументов):
@@ -26,3 +17,12 @@ if __name__ == '__main__':
 # Исходной директорией считать ту, в которой был запущен скрипт.
 
 # P.S. По возможности, сделайте кросс-платформенную реализацию.
+
+
+def copy():
+    path = re.findall(r"[^\/]*\.py", sys.argv[0])[0]
+    shutil.copy(path, path[:-3] + "_copy.py")
+
+
+if __name__ == '__main__':
+    copy()

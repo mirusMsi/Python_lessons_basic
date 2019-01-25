@@ -1,3 +1,5 @@
+import lib.easy as easy
+
 # Задача-1:
 # Напишите небольшую консольную утилиту,
 # позволяющую работать с папками текущей директории.
@@ -13,3 +15,56 @@
 # Для решения данной задачи используйте алгоритмы из задания easy,
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
+
+if __name__ == '__main__':
+
+    while True:
+
+        print("Список возможных действий:")
+        print("    1 - Перейти в папку;")
+        print("    2 - Просмотреть содержимое текущей папки;")
+        print("    3 - Удалить папку;")
+        print("    4 - Создать папку;")
+        print("    # - Выход из прграммы.")
+        print()
+
+        finish = input("Ваш выбор: ")
+        print()
+
+        if finish == '1':
+            path = input('Наберите полный путь папки: ')
+            print()
+            easy.change_dir(path)
+
+        elif finish == '2':
+            a = input("Если хотите увидеть только папки наберите - 0: ")
+            print()
+            if a == 0:
+                easy.show_all_dir()
+            else:
+                easy.show_all()
+
+        elif finish == '3':
+            while True:
+                path = input('Введите имя папки, которую хотите удалить или # для возврата в меню: ')
+                print()
+                if path == '#':
+                    break
+                else:
+                    easy.delete_dir(path)
+
+        elif finish == '4':
+            while True:
+                path = input('Введите имя папки, которую хотите создать или # для возврата в меню: ')
+                print()
+                if path == '#':
+                    break
+                else:
+                    easy.create_dir(path)
+
+        elif finish == '#':
+            break
+
+        else:
+            print('Такого пункта меню нет')
+            print()
